@@ -39,3 +39,5 @@ Thumbs.db
 # Keep placeholders and samples
 !assets/images/placeholder/
 !assets/images/sample/
+scripts/credentials.json
+*.json

@@ -258,13 +258,31 @@ body {
 
 .about-content {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: start;
+    min-height: 600px;
 }
 
-.about img {
+.about-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-image img {
     width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem 0;
 }
 
 .about h2 {
@@ -317,17 +335,17 @@ body {
 
 .instagram-link {
     display: inline-block;
-    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    background: transparent;
     color: white;
     text-decoration: none;
     padding: 1rem 2rem;
     border-radius: 25px;
     font-weight: 600;
-    transition: transform 0.2s;
+    transition: background 0.2s, transform 0.2s;
 }
 
 .instagram-link:hover {
-    transform: translateY(-2px);
+    background: #000;
 }
 
 .contact-form {
