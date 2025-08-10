@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Alexandra Scarlat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="artist-name">Alexandra Scarlat</h1>
+            <p class="artist-subtitle">Make-up & Fashion Artist</p>
+            <nav class="nav">
+                <a href="portfolio.html" class="active">PORTFOLIO</a>
+                <a href="about.html">ABOUT</a>
+                <a href="contact.html">CONTACT</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Portfolio Grid -->
+            <section class="portfolio-section">
+                <div class="portfolio-grid" id="portfolioGrid">
+                    <!-- Portfolio items will be rendered dynamically by JavaScript -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="close-btn" onclick="app.closeLightbox()">&times;</button>
+            <img src="" alt="">
+            <h3 class="title"></h3>
+            <p class="description"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-links">
+                <span>Alexandra Scarlat</span> • 
+                <a href="https://www.instagram.com/aalex.makeup/" target="_blank">Instagram</a> • 
+                <a href="contact.html">Contact</a>
+                <p class="copyright">Copyright © All rights reserved</p>
+            </p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
