@@ -37,10 +37,7 @@ class ProjectLoader {
             this.projects = {
                 labirinto: {
                     title: "Il Labirinto Della Mente",
-                    description: `
-                        <p>This editorial collection showcases innovative makeup techniques that push the boundaries of traditional beauty standards.</p>
-                        <p>The collection explores themes of transformation and self-expression using bold colors and experimental methods.</p>
-                    `,
+                    description: "<p>Editorial dedicated to Tim Burton's aesthetic, published on Inside Magazine.</p>",
                     images: [
                         "https://drive.google.com/uc?export=view&id=1s8txbOxSuKQJwIsIaLkPE5CwZoddwCTI",
                         "https://drive.google.com/uc?export=view&id=19zsvXcumSKvm8V-ru9WJF5Oa6oD-a11h",
@@ -51,8 +48,8 @@ class ProjectLoader {
                     ]
                 },
                 bodypainting: {
-                    title: "Body Painting",
-                    description: "<p>Artistic full-body makeup for creative and expressive storytelling.</p>",
+                    title: "Body Painting Final Exam",
+                    description: "<p>Artistic full-body makeup exam for MBA Making Beauty Academy.</p>",
                     images: [
                         "https://drive.google.com/uc?export=view&id=1ihc8vwgfa9Muj4d9DnzYL4DBK00taVSj",
                         "https://drive.google.com/uc?export=view&id=1gZHHAFoIxutkJjwYkbnV2yv-0ioCUrcZ",
@@ -75,7 +72,7 @@ class ProjectLoader {
                 },
                 sfxfinal: {
                     title: "SFX Final Exam",
-                    description: "<p>Final special effects makeup exam with prosthetics and illusion makeup.</p>",
+                    description: "<p>Final special effects makeup exam for MBA Making Beauty Academy.</p>",
                     images: [
                         "https://drive.google.com/uc?export=view&id=1FahwjokMFOGUJYEprWfo506hsFB4RMtX",
                         "https://drive.google.com/uc?export=view&id=1U9OMFbH80AG3tdDwnJvi1z1HiXv0aUDC",

@@ -165,7 +165,6 @@ class PortfolioUpdater:
                     "id": project_id,
                     "title": submission['title'],
                     "description": submission['description'],
-                    "category": "New Project",  # Default category
                     "images": submission['images'],
                     "thumbnail": submission['thumbnail'],
                     "date": datetime.now().strftime("%Y-%m-%d")

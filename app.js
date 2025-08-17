@@ -4,7 +4,6 @@
 class PortfolioApp {
     constructor() {
         this.projects = [];
-        this.currentFilter = 'all';
         this.init();
     }
 
@@ -38,7 +37,6 @@ class PortfolioApp {
             {
                 id: 'labirinto',
                 title: 'Il Labirinto Della Mente',
-                category: 'Editorial',
                 images: [
                     'https://drive.google.com/uc?export=view&id=1s8txbOxSuKQJwIsIaLkPE5CwZoddwCTI',
                     'https://drive.google.com/uc?export=view&id=19zsvXcumSKvm8V-ru9WJF5Oa6oD-a11h',
@@ -52,7 +50,6 @@ class PortfolioApp {
             {
                 id: 'bodypainting',
                 title: 'Body Painting',
-                category: 'Artistic',
                 images: [
                     'https://drive.google.com/uc?export=view&id=1ihc8vwgfa9Muj4d9DnzYL4DBK00taVSj',
                     'https://drive.google.com/uc?export=view&id=1gZHHAFoIxutkJjwYkbnV2yv-0ioCUrcZ',
@@ -65,7 +62,6 @@ class PortfolioApp {
             {
                 id: 'popeart',
                 title: 'Pope Art Parco Forlanini',
-                category: 'Outdoor',
                 images: [
                     'https://drive.google.com/uc?export=view&id=19BQdhg1sE_CYUGuhQ7JCFncWn6qSDs1g',
                     'https://drive.google.com/uc?export=view&id=1BScMkq3P3xXo50bab2MfFeSeUqixjofm',
@@ -79,7 +75,6 @@ class PortfolioApp {
             {
                 id: 'sfxfinal',
                 title: 'SFX Final Exam',
-                category: 'SFX',
                 images: [
                     'https://drive.google.com/uc?export=view&id=1FahwjokMFOGUJYEprWfo506hsFB4RMtX',
                     'https://drive.google.com/uc?export=view&id=1U9OMFbH80AG3tdDwnJvi1z1HiXv0aUDC',
@@ -168,13 +163,9 @@ class PortfolioApp {
 
         // Only render if the grid is empty (preserve existing HTML)
         if (grid.children.length === 0) {
-            const filtered = this.currentFilter === 'all' 
-                ? this.projects 
-                : this.projects.filter(p => p.category.toLowerCase() === this.currentFilter.toLowerCase());
+            console.log(`Rendering ${this.projects.length} projects`);
 
-            console.log(`Rendering ${filtered.length} filtered projects`);
-
-            grid.innerHTML = filtered.map(project => {
+            grid.innerHTML = this.projects.map(project => {
                 const thumbnailUrl = project.thumbnail || project.images[0];
                 console.log(`Rendering project: ${project.title} with thumbnail: ${thumbnailUrl}`);
                 
@@ -230,17 +221,6 @@ class PortfolioApp {
         const lightbox = document.getElementById('lightbox');
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
-    }
-
-    filterByCategory(category) {
-        this.currentFilter = category;
-        this.renderPortfolio();
-        
-        // Update active state
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        event.target.classList.add('active');
     }
 
     setupEventListeners() {

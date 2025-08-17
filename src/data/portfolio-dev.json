@@ -2,9 +2,8 @@
   "projects": [
     {
       "id": "face-paint-japan",
-      "title": "Face Paint Japan",
-      "description": "Japan",
-      "category": "New Project",
+      "title": "Geisha Sakura",
+      "description": "Face painting and hairstyle exam for MBA Making Beauty Academy.",
       "images": [
         "https://drive.google.com/uc?export=view&id=1OjNqe1f6YOVO73ZpANsGdBMTgwlDN1Bk",
         "https://drive.google.com/uc?export=view&id=1T3oSdmt92NG8wYyx8-DJsISOiR_RVgli",
@@ -17,8 +16,7 @@
     {
       "id": "labirinto",
       "title": "Il Labirinto Della Mente",
-      "description": "This editorial collection showcases innovative makeup techniques that push the boundaries of traditional beauty standards. The collection explores themes of transformation and self-expression using bold colors and experimental methods.",
-      "category": "Editorial",
+      "description": "Editorial dedicated to Tim Burton's aesthetic, published on Inside Magazine.",
       "images": [
         "https://drive.google.com/thumbnail?id=1s8txbOxSuKQJwIsIaLkPE5CwZoddwCTI&sz=w800",
         "https://drive.google.com/thumbnail?id=19zsvXcumSKvm8V-ru9WJF5Oa6oD-a11h&sz=w800",
@@ -33,14 +31,13 @@
     {
       "id": "bodypainting",
       "title": "Body Painting",
-      "description": "Artistic full-body makeup for creative and expressive storytelling.",
-      "category": "Artistic",
+      "description": "Full-body makeup exam for MBA Making Beauty Academy.",
       "images": [
-        "https://drive.google.com/thumbnail?id=1ihc8vwgfa9Muj4d9DnzYL4DBK00taVSj&sz=w800",
-        "https://drive.google.com/thumbnail?id=1gZHHAFoIxutkJjwYkbnV2yv-0ioCUrcZ&sz=w800",
-        "https://drive.google.com/thumbnail?id=1oHT7qf1hMAe9-FMQD_cGfzEL2HRlzxpP&sz=w800",
-        "https://drive.google.com/thumbnail?id=1pw7bN0Lf4srIfF128lEqFmL1wuGCa684&sz=w800",
-        "https://drive.google.com/thumbnail?id=1FHiz6XYYYdevLxfbDv6CKWQavoGUalxl&sz=w800"
+        "https://drive.google.com/uc?export=view&id=1ihc8vwgfa9Muj4d9DnzYL4DBK00taVSj",
+        "https://drive.google.com/uc?export=view&id=1gZHHAFoIxutkJjwYkbnV2yv-0ioCUrcZ",
+        "https://drive.google.com/uc?export=view&id=1oHT7qf1hMAe9-FMQD_cGfzEL2HRlzxpP",
+        "https://drive.google.com/uc?export=view&id=1pw7bN0Lf4srIfF128lEqFmL1wuGCa684",
+        "https://drive.google.com/uc?export=view&id=1FHiz6XYYYdevLxfbDv6CKWQavoGUalxl"
       ],
       "thumbnail": "https://drive.google.com/thumbnail?id=1ihc8vwgfa9Muj4d9DnzYL4DBK00taVSj&sz=w400",
       "date": "2024-01-10"
@@ -49,14 +46,13 @@
       "id": "popeart",
       "title": "Pope Art Parco Forlanini",
       "description": "An outdoor shoot blending pop art styling with natural landscapes.",
-      "category": "Outdoor",
       "images": [
         "https://drive.google.com/thumbnail?id=19BQdhg1sE_CYUGuhQ7JCFncWn6qSDs1g&sz=w800",
-        "https://drive.google.com/thumbnail?id=1BScMkq3P3xXo50bab2MfFeSeUqixjofm&sz=w800",
-        "https://drive.google.com/thumbnail?id=1Dst-Ez6VSbiTsCp09uZjlE-UyO--OwQL&sz=w800",
-        "https://drive.google.com/thumbnail?id=1mPk9dBr82s1R6qZmRJDNhGIi6MzEbc3n&sz=w800",
-        "https://drive.google.com/thumbnail?id=1pJS40Pt2_qbHJHVAaRP3AY9COzlQGBQS&sz=w800",
-        "https://drive.google.com/thumbnail?id=1OjCogZhZp42cJJpwX1nyA6NzgFGyT_Xa&sz=w800"
+        "https://drive.google.com/uc?export=view&id=1BScMkq3P3xXo50bab2MfFeSeUqixjofm",
+        "https://drive.google.com/uc?export=view&id=1Dst-Ez6VSbiTsCp09uZjlE-UyO--OwQL",
+        "https://drive.google.com/uc?export=view&id=1mPk9dBr82s1R6qZmRJDNhGIi6MzEbc3n",
+        "https://drive.google.com/uc?export=view&id=1pJS40Pt2_qbHJHVAaRP3AY9COzlQGBQS",
+        "https://drive.google.com/uc?export=view&id=1OjCogZhZp42cJJpwX1nyA6NzgFGyT_Xa"
       ],
       "thumbnail": "https://drive.google.com/thumbnail?id=19BQdhg1sE_CYUGuhQ7JCFncWn6qSDs1g&sz=w400",
       "date": "2024-01-05"
@@ -64,13 +60,12 @@
     {
       "id": "sfxfinal",
       "title": "SFX Final Exam",
-      "description": "Final special effects makeup exam with prosthetics and illusion makeup.",
-      "category": "SFX",
+      "description": "Final special effects makeup exam for MBA Making Beauty Academy.",
       "images": [
-        "https://drive.google.com/thumbnail?id=1FahwjokMFOGUJYEprWfo506hsFB4RMtX&sz=w800",
-        "https://drive.google.com/thumbnail?id=1U9OMFbH80AG3tdDwnJvi1z1HiXv0aUDC&sz=w800",
-        "https://drive.google.com/thumbnail?id=1dD6ieVbr3Ks84rCcEjyzRps5bFoQTZCt&sz=w800",
-        "https://drive.google.com/thumbnail?id=1LhoXx-LnIBmyjWNvVsqI9mWpZiNw05Hz&sz=w800"
+        "https://drive.google.com/uc?export=view&id=1FahwjokMFOGUJYEprWfo506hsFB4RMtX",
+        "https://drive.google.com/uc?export=view&id=1U9OMFbH80AG3tdDwnJvi1z1HiXv0aUDC",
+        "https://drive.google.com/uc?export=view&id=1dD6ieVbr3Ks84rCcEjyzRps5bFoQTZCt",
+        "https://drive.google.com/uc?export=view&id=1LhoXx-LnIBmyjWNvVsqI9mWpZiNw05Hz"
       ],
       "thumbnail": "https://drive.google.com/thumbnail?id=1FahwjokMFOGUJYEprWfo506hsFB4RMtX&sz=w400",
       "date": "2024-01-01"
