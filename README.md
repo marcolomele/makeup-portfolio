@@ -4,7 +4,7 @@ A minimal, single-page portfolio website for makeup artist Alexandra Scarlat.
 
 ## Structure
 
-- **`portfolio.html`** - Main portfolio page (landing page)
+- **`index.html`** - Main portfolio page (landing page)
 - **`about.html`** - About page with artist information
 - **`contact.html`** - Contact page with form and contact details
 - **`style.css`** - Consolidated stylesheet
@@ -21,7 +21,7 @@ A minimal, single-page portfolio website for makeup artist Alexandra Scarlat.
 
 ## Usage
 
-1. Open `portfolio.html` in a web browser (landing page)
+1. Open `index.html` in a web browser (landing page)
 2. Click on portfolio items to view in lightbox
 3. Navigate between pages using the menu
 4. Use the contact form to send messages
