@@ -123,7 +123,14 @@ class ProjectLoader {
                 img.style.transition = 'opacity 0.4s ease';
                 img.style.filter = 'blur(1px)';
                 
-                // Add error handling for Google Drive images with improved fallback
+                // Add error handling for Google Drive images with improved fallback and timeout
+                const timeoutId = setTimeout(() => {
+                    if (!img.complete || img.naturalWidth === 0) {
+                        console.warn(`Project image load timeout ${index + 1}: ${imageUrl}`);
+                        if (typeof img.onerror === 'function') img.onerror();
+                    }
+                }, 10000);
+
                 img.onerror = function() {
                     console.warn(`Failed to load image ${index + 1}: ${imageUrl}`);
                     
@@ -142,6 +149,7 @@ class ProjectLoader {
                         this.style.opacity = '0.7';
                         this.style.filter = 'none';
                     }
+                    clearTimeout(timeoutId);
                 };
                 
                 img.onload = function() {
@@ -150,6 +158,7 @@ class ProjectLoader {
                     this.style.filter = 'blur(0px)';
                     // Remove loading state
                     div.querySelector('.image-loading-container').remove();
+                    clearTimeout(timeoutId);
                 };
                 
                 div.appendChild(img);

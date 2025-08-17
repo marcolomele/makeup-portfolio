@@ -16,7 +16,7 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
-from config import SPREADSHEET_ID, CREDENTIALS_FILE, COLUMNS, OUTPUT_FILE, LAST_UPDATE_FILE, THUMBNAIL_WIDTH
+from config import SPREADSHEET_ID, CREDENTIALS_FILE, COLUMNS, OUTPUT_FILE, LAST_UPDATE_FILE
 
 class PortfolioUpdater:
     def __init__(self):

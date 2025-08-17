@@ -97,41 +97,58 @@ class PortfolioApp {
         img.alt = alt;
         img.loading = 'lazy';
         img.className = className;
+        img.referrerPolicy = 'no-referrer';
         
         // Add loading state
         img.style.opacity = '0.6';
         img.style.transition = 'opacity 0.4s ease';
         img.style.filter = 'blur(1px)';
         
+        // Establish a timeout to avoid indefinite pending requests (e.g., on GitHub Pages)
+        const timeoutId = setTimeout(() => {
+            if (!img.complete || img.naturalWidth === 0) {
+                console.warn(`Image load timeout: ${src}`);
+                if (typeof img.onerror === 'function') img.onerror();
+            }
+        }, 10000);
+
         // Handle successful load
         img.onload = function() {
             console.log(`Image loaded successfully: ${src}`);
             this.style.opacity = '1';
             this.style.filter = 'blur(0px)';
+            clearTimeout(timeoutId);
         };
         
-        // Handle errors with improved fallback strategy
+        // Handle errors with improved fallback strategy and guard to avoid infinite loops
+        let attempts = 0;
         img.onerror = function() {
-            console.warn(`Failed to load image: ${src}`);
-            
-            // Try to convert to alternative format if it's a Google Drive URL
-            if (src.includes('drive.google.com/thumbnail')) {
-                // Convert thumbnail to export format
-                const newSrc = src.replace('/thumbnail?id=', '/uc?export=view&id=').replace('&sz=w800', '').replace('&sz=w400', '');
-                console.log(`Trying export format: ${newSrc}`);
+            attempts += 1;
+            console.warn(`Failed to load image (attempt ${attempts}): ${this.src}`);
+
+            // Extract Drive file id if present
+            const fileIdMatch = (this.src.match(/id=([a-zA-Z0-9_-]+)/) || this.src.match(/\/d\/([a-zA-Z0-9_-]+)/));
+            const fileId = fileIdMatch ? fileIdMatch[1] : null;
+
+            if (fileId && attempts === 1) {
+                // First fallback: try Google Drive thumbnail format
+                const newSrc = `https://drive.google.com/thumbnail?id=${fileId}&sz=w1600`;
+                console.log(`Trying Drive thumbnail fallback: ${newSrc}`);
                 this.src = newSrc;
-            } else if (src.includes('drive.google.com/uc?export=view')) {
-                // Convert export to thumbnail format
-                const newSrc = src.replace('/uc?export=view&id=', '/thumbnail?id=') + '&sz=w800';
-                console.log(`Trying thumbnail format: ${newSrc}`);
+            } else if (fileId && attempts === 2) {
+                // Second fallback: try Google Drive export format
+                const newSrc = `https://drive.google.com/uc?export=view&id=${fileId}`;
+                console.log(`Trying Drive export fallback: ${newSrc}`);
                 this.src = newSrc;
             } else {
                 // Use placeholder as final fallback
-                this.src = 'https://via.placeholder.com/400x600/cccccc/666666?text=Image+Loading...';
+                this.onerror = null;
+                this.src = 'https://via.placeholder.com/400x600/cccccc/666666?text=Image+Unavailable';
                 this.style.opacity = '0.7';
                 this.style.background = '#f8f9fa';
                 this.style.filter = 'none';
             }
+            clearTimeout(timeoutId);
         };
         
         // Set the source after setting up error handling
@@ -168,6 +185,7 @@ class PortfolioApp {
                                  alt="${project.title}" 
                                  loading="lazy"
                                  class="portfolio-thumbnail"
+                                 referrerpolicy="no-referrer"
                                  onerror="this.onerror=null; this.src='https://via.placeholder.com/400x600/cccccc/666666?text=Image+Loading...'; console.warn('Portfolio image failed to load:', '${thumbnailUrl}');"
                                  onload="this.style.opacity='1'; this.style.filter='blur(0px)'; console.log('Portfolio image loaded:', '${thumbnailUrl}');">
                             <div class="portfolio-loading-overlay">
