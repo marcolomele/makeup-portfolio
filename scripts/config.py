@@ -18,4 +18,4 @@ OUTPUT_FILE = "../src/data/portfolio-dev.json"
 LAST_UPDATE_FILE = "last_update.txt"
 
 # Image Processing
-THUMBNAIL_WIDTH = "w400"  # Google Drive thumbnail parameter
+# THUMBNAIL_WIDTH removed - now handled by separate methods in update_portfolio.py

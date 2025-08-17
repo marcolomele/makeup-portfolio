@@ -6,10 +6,10 @@
       "description": "Japan",
       "category": "New Project",
       "images": [
-        "https://drive.google.com/thumbnail?id=1OjNqe1f6YOVO73ZpANsGdBMTgwlDN1Bk&sz=w800",
-        "https://drive.google.com/thumbnail?id=1T3oSdmt92NG8wYyx8-DJsISOiR_RVgli&sz=w800",
-        "https://drive.google.com/thumbnail?id=1_jpPpdlsihEnCSs9gNZqdQ58U6fEgj_j&sz=w800",
-        "https://drive.google.com/thumbnail?id=1PV2Z8J-LIodSlsHYgWWliIykRygZgXmS&sz=w800"
+        "https://drive.google.com/uc?export=view&id=1OjNqe1f6YOVO73ZpANsGdBMTgwlDN1Bk",
+        "https://drive.google.com/uc?export=view&id=1T3oSdmt92NG8wYyx8-DJsISOiR_RVgli",
+        "https://drive.google.com/uc?export=view&id=1_jpPpdlsihEnCSs9gNZqdQ58U6fEgj_j",
+        "https://drive.google.com/uc?export=view&id=1PV2Z8J-LIodSlsHYgWWliIykRygZgXmS"
       ],
       "thumbnail": "https://drive.google.com/thumbnail?id=1OjNqe1f6YOVO73ZpANsGdBMTgwlDN1Bk&sz=w400",
       "date": "2025-08-10"
@@ -75,22 +75,5 @@
       "thumbnail": "https://drive.google.com/thumbnail?id=1FahwjokMFOGUJYEprWfo506hsFB4RMtX&sz=w400",
       "date": "2024-01-01"
     }
-  ],
-  "artist": {
-    "name": "Alexandra Scarlat",
-    "location": "Milan, Italy",
-    "bio": "Professional makeup artist with over 8 years of experience in fashion, beauty, and editorial photography. Specializing in creating unique looks that enhance natural beauty while pushing creative boundaries.",
-    "specialties": [
-      "Fashion",
-      "Editorial",
-      "Bridal",
-      "Commercial",
-      "Beauty"
-    ],
-    "social": {
-      "instagram": "@alexandra.scarlat.makeup",
-      "email": "alexandra@example.com",
-      "phone": "+39 123 456 7890"
-    }
-  }
+  ]
 }

@@ -86,7 +86,7 @@ class PortfolioUpdater:
                         for idx in image_indices:
                             if idx is not None and idx < len(row) and row[idx].strip():
                                 img_url = row[idx].strip()
-                                # Convert Google Drive link to thumbnail format
+                                # Convert Google Drive link to export format for better loading
                                 img_url = self._convert_to_thumbnail(img_url)
                                 images.append(img_url)
                         
@@ -95,7 +95,7 @@ class PortfolioUpdater:
                                 'title': title,
                                 'description': description,
                                 'images': images,
-                                'thumbnail': images[0]  # First image is thumbnail
+                                'thumbnail': self._convert_to_thumbnail_small(images[0])  # Convert first image to small thumbnail
                             }
                             new_submissions.append(submission)
             
@@ -107,19 +107,43 @@ class PortfolioUpdater:
             return []
     
     def _convert_to_thumbnail(self, drive_url: str) -> str:
-        """Convert Google Drive URL to thumbnail format"""
+        """Convert Google Drive URL to appropriate format for optimal loading"""
         # Extract file ID from various Google Drive URL formats
         patterns = [
             r'https://drive\.google\.com/open\?id=([a-zA-Z0-9_-]+)',
             r'https://drive\.google\.com/file/d/([a-zA-Z0-9_-]+)',
-            r'https://drive\.google\.com/uc\?id=([a-zA-Z0-9_-]+)'
+            r'https://drive\.google\.com/uc\?id=([a-zA-Z0-9_-]+)',
+            r'https://drive\.google\.com/uc\?export=view&id=([a-zA-Z0-9_-]+)',
+            r'https://drive\.google\.com/thumbnail\?id=([a-zA-Z0-9_-]+)'
         ]
         
         for pattern in patterns:
             match = re.search(pattern, drive_url)
             if match:
                 file_id = match.group(1)
-                return f"https://drive.google.com/thumbnail?id={file_id}&sz={THUMBNAIL_WIDTH}"
+                # Use export format for main images (better loading performance)
+                return f"https://drive.google.com/uc?export=view&id={file_id}"
+        
+        # If no pattern matches, return original URL
+        return drive_url
+    
+    def _convert_to_thumbnail_small(self, drive_url: str) -> str:
+        """Convert Google Drive URL to small thumbnail format for portfolio grid"""
+        # Extract file ID from various Google Drive URL formats
+        patterns = [
+            r'https://drive\.google\.com/open\?id=([a-zA-Z0-9_-]+)',
+            r'https://drive\.google\.com/file/d/([a-zA-Z0-9_-]+)',
+            r'https://drive\.google\.com/uc\?id=([a-zA-Z0-9_-]+)',
+            r'https://drive\.google\.com/uc\?export=view&id=([a-zA-Z0-9_-]+)',
+            r'https://drive\.google\.com/thumbnail\?id=([a-zA-Z0-9_-]+)'
+        ]
+        
+        for pattern in patterns:
+            match = re.search(pattern, drive_url)
+            if match:
+                file_id = match.group(1)
+                # Use thumbnail format for grid thumbnails (faster loading)
+                return f"https://drive.google.com/thumbnail?id={file_id}&sz=w400"
         
         # If no pattern matches, return original URL
         return drive_url

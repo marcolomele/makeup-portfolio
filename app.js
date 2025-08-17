@@ -39,28 +39,53 @@ class PortfolioApp {
                 id: 'labirinto',
                 title: 'Il Labirinto Della Mente',
                 category: 'Editorial',
-                images: ['https://drive.google.com/thumbnail?id=1R2UDOltgoka-MsmmvLshXdjG2gevgq_K&sz=w800'],
+                images: [
+                    'https://drive.google.com/uc?export=view&id=1s8txbOxSuKQJwIsIaLkPE5CwZoddwCTI',
+                    'https://drive.google.com/uc?export=view&id=19zsvXcumSKvm8V-ru9WJF5Oa6oD-a11h',
+                    'https://drive.google.com/uc?export=view&id=16J1IKfrxGRfpWTe0X4qaA9yq-Rtx98Py',
+                    'https://drive.google.com/uc?export=view&id=1Q8qV5cr3sf6-N6QjbP-luq6DxNl5w5Y2',
+                    'https://drive.google.com/uc?export=view&id=1yqDf2gU8BGsTz_Vq4cql7QsmvwWROCyk',
+                    'https://drive.google.com/uc?export=view&id=15MdEVBWzAX36pcCxBqNYmhef0pfnt_Nu'
+                ],
                 thumbnail: 'https://drive.google.com/thumbnail?id=1s8txbOxSuKQJwIsIaLkPE5CwZoddwCTI&sz=w400'
             },
             {
                 id: 'bodypainting',
                 title: 'Body Painting',
                 category: 'Artistic',
-                images: ['https://drive.google.com/thumbnail?id=1ihc8vwgfa9Muj4d9DnzYL4DBK00taVSj&sz=w800'],
-                thumbnail: 'https://drive.google.com/thumbnail?id=1s8txbOxSuKQJwIsIaLkPE5CwZoddwCTI&sz=w400'
+                images: [
+                    'https://drive.google.com/uc?export=view&id=1ihc8vwgfa9Muj4d9DnzYL4DBK00taVSj',
+                    'https://drive.google.com/uc?export=view&id=1gZHHAFoIxutkJjwYkbnV2yv-0ioCUrcZ',
+                    'https://drive.google.com/uc?export=view&id=1oHT7qf1hMAe9-FMQD_cGfzEL2HRlzxpP',
+                    'https://drive.google.com/uc?export=view&id=1pw7bN0Lf4srIfF128lEqFmL1wuGCa684',
+                    'https://drive.google.com/uc?export=view&id=1FHiz6XYYYdevLxfbDv6CKWQavoGUalxl'
+                ],
+                thumbnail: 'https://drive.google.com/thumbnail?id=1ihc8vwgfa9Muj4d9DnzYL4DBK00taVSj&sz=w400'
             },
             {
                 id: 'popeart',
                 title: 'Pope Art Parco Forlanini',
                 category: 'Outdoor',
-                images: ['https://drive.google.com/thumbnail?id=19BQdhg1sE_CYUGuhQ7JCFncWn6qSDs1g&sz=w800'],
+                images: [
+                    'https://drive.google.com/uc?export=view&id=19BQdhg1sE_CYUGuhQ7JCFncWn6qSDs1g',
+                    'https://drive.google.com/uc?export=view&id=1BScMkq3P3xXo50bab2MfFeSeUqixjofm',
+                    'https://drive.google.com/uc?export=view&id=1Dst-Ez6VSbiTsCp09uZjlE-UyO--OwQL',
+                    'https://drive.google.com/uc?export=view&id=1mPk9dBr82s1R6qZmRJDNhGIi6MzEbc3n',
+                    'https://drive.google.com/uc?export=view&id=1pJS40Pt2_qbHJHVAaRP3AY9COzlQGBQS',
+                    'https://drive.google.com/uc?export=view&id=1OjCogZhZp42cJJpwX1nyA6NzgFGyT_Xa'
+                ],
                 thumbnail: 'https://drive.google.com/thumbnail?id=19BQdhg1sE_CYUGuhQ7JCFncWn6qSDs1g&sz=w400'
             },
             {
                 id: 'sfxfinal',
                 title: 'SFX Final Exam',
                 category: 'SFX',
-                images: ['https://drive.google.com/thumbnail?id=1FahwjokMFOGUJYEprWfo506hsFB4RMtX&sz=w800'],
+                images: [
+                    'https://drive.google.com/uc?export=view&id=1FahwjokMFOGUJYEprWfo506hsFB4RMtX',
+                    'https://drive.google.com/uc?export=view&id=1U9OMFbH80AG3tdDwnJvi1z1HiXv0aUDC',
+                    'https://drive.google.com/uc?export=view&id=1dD6ieVbr3Ks84rCcEjyzRps5bFoQTZCt',
+                    'https://drive.google.com/uc?export=view&id=1LhoXx-LnIBmyjWNvVsqI9mWpZiNw05Hz'
+                ],
                 thumbnail: 'https://drive.google.com/thumbnail?id=1FahwjokMFOGUJYEprWfo506hsFB4RMtX&sz=w400'
             }
         ];
@@ -74,35 +99,38 @@ class PortfolioApp {
         img.className = className;
         
         // Add loading state
-        img.style.opacity = '0.8';
-        img.style.transition = 'opacity 0.3s ease';
+        img.style.opacity = '0.6';
+        img.style.transition = 'opacity 0.4s ease';
+        img.style.filter = 'blur(1px)';
         
         // Handle successful load
         img.onload = function() {
             console.log(`Image loaded successfully: ${src}`);
             this.style.opacity = '1';
+            this.style.filter = 'blur(0px)';
         };
         
-        // Handle errors with fallback to alternative Google Drive format
+        // Handle errors with improved fallback strategy
         img.onerror = function() {
             console.warn(`Failed to load image: ${src}`);
             
             // Try to convert to alternative format if it's a Google Drive URL
             if (src.includes('drive.google.com/thumbnail')) {
                 // Convert thumbnail to export format
-                const newSrc = src.replace('/thumbnail?id=', '/uc?export=view&id=').replace('&sz=w800', '');
-                console.log(`Trying alternative format: ${newSrc}`);
+                const newSrc = src.replace('/thumbnail?id=', '/uc?export=view&id=').replace('&sz=w800', '').replace('&sz=w400', '');
+                console.log(`Trying export format: ${newSrc}`);
                 this.src = newSrc;
             } else if (src.includes('drive.google.com/uc?export=view')) {
                 // Convert export to thumbnail format
                 const newSrc = src.replace('/uc?export=view&id=', '/thumbnail?id=') + '&sz=w800';
-                console.log(`Trying alternative format: ${newSrc}`);
+                console.log(`Trying thumbnail format: ${newSrc}`);
                 this.src = newSrc;
             } else {
                 // Use placeholder as final fallback
                 this.src = 'https://via.placeholder.com/400x600/cccccc/666666?text=Image+Loading...';
                 this.style.opacity = '0.7';
                 this.style.background = '#f8f9fa';
+                this.style.filter = 'none';
             }
         };
         
@@ -135,11 +163,17 @@ class PortfolioApp {
                 
                 return `
                     <div class="portfolio-item" onclick="app.openProject('${project.id}')">
-                        <img src="${thumbnailUrl}" 
-                             alt="${project.title}" 
-                             loading="lazy"
-                             onerror="this.onerror=null; this.src='https://via.placeholder.com/400x600/cccccc/666666?text=Image+Loading...'; console.warn('Portfolio image failed to load:', '${thumbnailUrl}');"
-                             onload="this.style.opacity='1'; console.log('Portfolio image loaded:', '${thumbnailUrl}');">
+                        <div class="portfolio-image-container">
+                            <img src="${thumbnailUrl}" 
+                                 alt="${project.title}" 
+                                 loading="lazy"
+                                 class="portfolio-thumbnail"
+                                 onerror="this.onerror=null; this.src='https://via.placeholder.com/400x600/cccccc/666666?text=Image+Loading...'; console.warn('Portfolio image failed to load:', '${thumbnailUrl}');"
+                                 onload="this.style.opacity='1'; this.style.filter='blur(0px)'; console.log('Portfolio image loaded:', '${thumbnailUrl}');">
+                            <div class="portfolio-loading-overlay">
+                                <div class="loading-spinner"></div>
+                            </div>
+                        </div>
                         <div class="portfolio-overlay">
                             <h3>${project.title}</h3>
                         </div>
@@ -157,47 +191,6 @@ class PortfolioApp {
             window.location.href = `projects.html?id=${id}`;
         } else {
             console.error(`Project not found: ${id}`);
-        }
-    }
-
-    openSampleProject(id) {
-        // Handle sample projects with hardcoded data
-        const sampleProjects = {
-            'sample-1': {
-                title: 'Fashion Editorial',
-                description: 'Modern fashion makeup for editorial shoots featuring bold colors and innovative techniques.',
-                images: ['https://picsum.photos/seed/fashion1/800/1200']
-            },
-            'sample-2': {
-                title: 'Bridal Beauty',
-                description: 'Natural bridal makeup for special occasions, ensuring the bride looks radiant and camera-ready.',
-                images: ['https://picsum.photos/seed/bridal1/800/1200']
-            },
-            'sample-3': {
-                title: 'Commercial Shoot',
-                description: 'Professional makeup for commercial photography and advertising campaigns.',
-                images: ['https://picsum.photos/seed/commercial1/800/1200']
-            },
-            'sample-4': {
-                title: 'Natural Beauty',
-                description: 'Enhancing natural beauty with subtle makeup techniques for everyday glamour.',
-                images: ['https://picsum.photos/seed/beauty1/800/1200']
-            },
-            'sample-5': {
-                title: 'Artistic Expression',
-                description: 'Creative and artistic makeup designs that push boundaries and explore new forms of self-expression.',
-                images: ['https://picsum.photos/seed/editorial1/800/1200']
-            },
-            'sample-6': {
-                title: 'Runway Show',
-                description: 'Bold and dramatic makeup looks designed for the runway, ensuring models stand out under bright lights.',
-                images: ['https://picsum.photos/seed/runway1/800/1200']
-            }
-        };
-
-        const project = sampleProjects[id];
-        if (project) {
-            this.openLightbox(project);
         }
     }
 

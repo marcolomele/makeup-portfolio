@@ -73,6 +73,11 @@ body {
     padding: 2rem 0;
 }
 
+/* Global link styling */
+a {
+    color: inherit;
+}
+
 /* Portfolio Section */
 .portfolio-section {
     margin: 1rem 0;
@@ -116,8 +121,6 @@ body {
     height: auto;
     display: block;
 }
-
-
 
 .project-content {
     margin-bottom: 2rem;
@@ -289,7 +292,7 @@ body {
 .about h2 {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
-    color: #333;
+    color: #000000;
 }
 
 .about p {
@@ -306,11 +309,10 @@ body {
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 3rem;
-    color: #333;
+    color: #000000;
 }
 
 .contact-layout {
-    /* Remove grid layout and center the single Instagram section */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -321,8 +323,6 @@ body {
 .instagram-section {
     text-align: center;
     padding: 3rem 2rem;
-    /* Remove the grey background */
-    /* background: #f8f9fa; */
     border-radius: 6px;
     width: 100%;
     max-width: 500px;
@@ -331,27 +331,43 @@ body {
 .instagram-content h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: #333;
+    color: #000000;
 }
 
 .instagram-logo {
     font-size: 3rem;
     margin-bottom: 1rem;
+    color: black;
 }
 
 .instagram-link {
     display: inline-block;
-    background: #333;
-    color: white;
+    background: #ffffff;
+    color: #000000;
     text-decoration: none;
     padding: 1rem 2rem;
     border-radius: 6px;
     font-weight: 600;
     transition: background 0.2s, transform 0.2s;
+    outline: none;
+    border: 2px solid #000000;
+    text-decoration-color: white;
 }
 
 .instagram-link:hover {
-    background: #000;
+    background: #000000;
+    color: #ffffff;
+    border: 2px solid #000000;
+}
+
+.instagram-link:focus {
+    outline: none;
+    border: 2px solid #000000;
+}
+
+.instagram-link:active {
+    outline: none;
+    border: 2px solid #000000;
 }
 
 .contact-form {
@@ -362,7 +378,7 @@ body {
 .contact-form h3 {
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
-    color: #333;
+    color: #000000;
     text-align: center;
 }
 
@@ -446,14 +462,86 @@ body {
     color: #333;
 }
 
-/* Image loading states */
 .portfolio-item img[src*="placeholder"],
 .project-image img[src*="placeholder"] {
     opacity: 0.7;
     background: #f8f9fa;
 }
 
-/* Responsive Design */
+/* Portfolio Image Loading States */
+.portfolio-image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-thumbnail {
+    opacity: 0.6;
+    filter: blur(1px);
+    transition: opacity 0.4s ease, filter 0.4s ease;
+}
+
+.portfolio-loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-thumbnail:not([src*="placeholder"]) + .portfolio-loading-overlay {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loading-spinner {
+    width: 30px;
+    height: 30px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #333;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Project Image Loading States */
+.image-loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    min-height: 200px;
+}
+
+.image-loading-container p {
+    margin-top: 1rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.project-image img {
+    opacity: 0.6;
+    filter: blur(1px);
+    transition: opacity 0.4s ease, filter 0.4s ease;
+}
+
+.project-image img:not([src*="placeholder"]) {
+    opacity: 1;
+    filter: blur(0px);
+}
+
 @media (max-width: 1024px) {
     .portfolio-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

@@ -42,11 +42,11 @@ class ProjectLoader {
                         <p>The collection explores themes of transformation and self-expression using bold colors and experimental methods.</p>
                     `,
                     images: [
-                        "https://drive.google.com/thumbnail?id=1R2UDOltgoka-MsmmvLshXdjG2gevgq_K&sz=w800",
-                        "https://drive.google.com/thumbnail?id=19zsvXcumSKvm8V-ru9WJF5Oa6oD-a11h&sz=w800",
-                        "https://drive.google.com/thumbnail?id=16J1IKfrxGRfpWTe0X4qaA9yq-Rtx98Py&sz=w800",
-                        "https://drive.google.com/thumbnail?id=1Q8qV5cr3sf6-N6QjbP-luq6DxNl5w5Y2&sz=w800",
-                        "https://drive.google.com/thumbnail?id=1yqDf2gU8BGsTz_Vq4cql7QsmvwWROCyk&sz=w800",
+                        "https://drive.google.com/uc?export=view&id=1s8txbOxSuKQJwIsIaLkPE5CwZoddwCTI",
+                        "https://drive.google.com/uc?export=view&id=19zsvXcumSKvm8V-ru9WJF5Oa6oD-a11h",
+                        "https://drive.google.com/uc?export=view&id=16J1IKfrxGRfpWTe0X4qaA9yq-Rtx98Py",
+                        "https://drive.google.com/uc?export=view&id=1Q8qV5cr3sf6-N6QjbP-luq6DxNl5w5Y2",
+                        "https://drive.google.com/uc?export=view&id=1yqDf2gU8BGsTz_Vq4cql7QsmvwWROCyk",
                         "https://drive.google.com/uc?export=view&id=15MdEVBWzAX36pcCxBqNYmhef0pfnt_Nu"
                     ]
                 },
@@ -54,18 +54,18 @@ class ProjectLoader {
                     title: "Body Painting",
                     description: "<p>Artistic full-body makeup for creative and expressive storytelling.</p>",
                     images: [
-                        "https://drive.google.com/thumbnail?id=1ihc8vwgfa9Muj4d9DnzYL4DBK00taVSj&sz=w800",
-                        "https://drive.google.com/thumbnail?id=1gZHHAFoIxutkJjwYkbnV2yv-0ioCUrcZ&sz=w800",
-                        "https://drive.google.com/thumbnail?id=1oHT7qf1hMAe9-FMQD_cGfzEL2HRlzxpP&sz=w800",
-                        "https://drive.google.com/thumbnail?id=1pw7bN0Lf4srIfF128lEqFmL1wuGCa684&sz=w800",
-                        "https://drive.google.com/thumbnail?id=1FHiz6XYYYdevLxfbDv6CKWQavoGUalxl&sz=w800"
+                        "https://drive.google.com/uc?export=view&id=1ihc8vwgfa9Muj4d9DnzYL4DBK00taVSj",
+                        "https://drive.google.com/uc?export=view&id=1gZHHAFoIxutkJjwYkbnV2yv-0ioCUrcZ",
+                        "https://drive.google.com/uc?export=view&id=1oHT7qf1hMAe9-FMQD_cGfzEL2HRlzxpP",
+                        "https://drive.google.com/uc?export=view&id=1pw7bN0Lf4srIfF128lEqFmL1wuGCa684",
+                        "https://drive.google.com/uc?export=view&id=1FHiz6XYYYdevLxfbDv6CKWQavoGUalxl"
                     ]
                 },
                 popeart: {
                     title: "Pope Art Parco Forlanini",
                     description: "<p>An outdoor shoot blending pop art styling with natural landscapes.</p>",
                     images: [
-                        "https://drive.google.com/thumbnail?id=19BQdhg1sE_CYUGuhQ7JCFncWn6qSDs1g&sz=w800",
+                        "https://drive.google.com/uc?export=view&id=19BQdhg1sE_CYUGuhQ7JCFncWn6qSDs1g",
                         "https://drive.google.com/uc?export=view&id=1BScMkq3P3xXo50bab2MfFeSeUqixjofm",
                         "https://drive.google.com/uc?export=view&id=1Dst-Ez6VSbiTsCp09uZjlE-UyO--OwQL",
                         "https://drive.google.com/uc?export=view&id=1mPk9dBr82s1R6qZmRJDNhGIi6MzEbc3n",
@@ -77,7 +77,7 @@ class ProjectLoader {
                     title: "SFX Final Exam",
                     description: "<p>Final special effects makeup exam with prosthetics and illusion makeup.</p>",
                     images: [
-                        "https://drive.google.com/thumbnail?id=1FahwjokMFOGUJYEprWfo506hsFB4RMtX&sz=w800",
+                        "https://drive.google.com/uc?export=view&id=1FahwjokMFOGUJYEprWfo506hsFB4RMtX",
                         "https://drive.google.com/uc?export=view&id=1U9OMFbH80AG3tdDwnJvi1z1HiXv0aUDC",
                         "https://drive.google.com/uc?export=view&id=1dD6ieVbr3Ks84rCcEjyzRps5bFoQTZCt",
                         "https://drive.google.com/uc?export=view&id=1LhoXx-LnIBmyjWNvVsqI9mWpZiNw05Hz"
@@ -107,34 +107,49 @@ class ProjectLoader {
                 const div = document.createElement("div");
                 div.className = "project-image";
                 
+                // Add loading state
+                div.innerHTML = `
+                    <div class="image-loading-container">
+                        <div class="loading-spinner"></div>
+                        <p>Loading image ${index + 1}...</p>
+                    </div>
+                `;
+                
                 const img = document.createElement("img");
                 img.src = imageUrl;
                 img.loading = "lazy";
                 img.alt = `${project.title} - Image ${index + 1}`;
+                img.style.opacity = '0.6';
+                img.style.transition = 'opacity 0.4s ease';
+                img.style.filter = 'blur(1px)';
                 
-                // Add error handling for Google Drive images with fallback
+                // Add error handling for Google Drive images with improved fallback
                 img.onerror = function() {
                     console.warn(`Failed to load image ${index + 1}: ${imageUrl}`);
                     
                     // Try alternative Google Drive format
                     if (imageUrl.includes('drive.google.com/thumbnail')) {
-                        const newSrc = imageUrl.replace('/thumbnail?id=', '/uc?export=view&id=').replace('&sz=w800', '');
-                        console.log(`Trying alternative format for image ${index + 1}: ${newSrc}`);
+                        const newSrc = imageUrl.replace('/thumbnail?id=', '/uc?export=view&id=').replace('&sz=w800', '').replace('&sz=w400', '');
+                        console.log(`Trying export format for image ${index + 1}: ${newSrc}`);
                         this.src = newSrc;
                     } else if (imageUrl.includes('drive.google.com/uc?export=view')) {
                         const newSrc = imageUrl.replace('/uc?export=view&id=', '/thumbnail?id=') + '&sz=w800';
-                        console.log(`Trying alternative format for image ${index + 1}: ${newSrc}`);
+                        console.log(`Trying thumbnail format for image ${index + 1}: ${newSrc}`);
                         this.src = newSrc;
                     } else {
                         // Use placeholder as final fallback
                         this.src = 'https://via.placeholder.com/800x600/cccccc/666666?text=Image+Loading...';
                         this.style.opacity = '0.7';
+                        this.style.filter = 'none';
                     }
                 };
                 
                 img.onload = function() {
                     console.log(`Image ${index + 1} loaded successfully: ${imageUrl}`);
                     this.style.opacity = '1';
+                    this.style.filter = 'blur(0px)';
+                    // Remove loading state
+                    div.querySelector('.image-loading-container').remove();
                 };
                 
                 div.appendChild(img);
